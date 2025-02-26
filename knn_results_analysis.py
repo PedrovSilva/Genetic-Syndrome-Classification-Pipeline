@@ -12,7 +12,7 @@ class KNNResultsAnalyzer:
     def compute_statistics(self):
         """Compute mean and standard deviation for each metric."""
         stats = self.df.describe().transpose()[['mean', 'std']]
-        stats.to_csv("knn_results_statistics.csv")
+        stats.to_csv("data/output/knn_results_statistics.csv")
         print("Statistics saved as knn_results_statistics.csv")
         return stats
     
