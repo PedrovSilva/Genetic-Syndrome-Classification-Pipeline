@@ -1,7 +1,7 @@
 from dataset import GeneticSyndromeDataset
 
-def main():
-    file_path = "mini_gm_public_v0.1.p"
+def data_visualization():
+    file_path = "data/mini_gm_public_v0.1.p"
 
     print("Iniciando o carregamento dos dados...")
     dataset = GeneticSyndromeDataset(file_path)
@@ -13,4 +13,4 @@ def main():
     dataset.plot_tsne()
 
 if __name__ == "__main__":
-    main()
+    data_visualization()
