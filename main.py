@@ -2,7 +2,12 @@ from dataset import GeneticSyndromeDataset
 import numpy as np
 from dataset import GeneticSyndromeDataset
 from knn_classifier import KNNClassifier
+from knn_results_analysis import KNNResultsAnalyzer
 
+
+def analysis():
+    analyzer = KNNResultsAnalyzer("results_knn_comparison.csv")
+    stats = analyzer.analyze()
 def classification():
     # Load dataset
     file_path = "data/mini_gm_public_v0.1.p"
@@ -51,5 +56,6 @@ def data_visualization():
     dataset.plot_tsne()
 
 if __name__ == "__main__":
-    # data_visualization()
-    classification()
+    #data_visualization()
+    #classification()
+    analysis()
