@@ -9,6 +9,7 @@ from knn_results_analysis import KNNResultsAnalyzer
 def analysis():
     analyzer = KNNResultsAnalyzer("data/output/results_knn_comparison.csv")
     stats = analyzer.analyze()
+
 def classification():
     # Load dataset
     file_path = "data/input/mini_gm_public_v0.1.p"
@@ -31,8 +32,9 @@ def classification():
     df_comparison = knn_classifier.compare_metrics()
     print("\n🔍 Distance Metric Comparison:")
     print(df_comparison)
+
     # Save individual metric results
-    output_dir = "data/output" 
+    output_dir = "data/output"
     os.makedirs(output_dir, exist_ok=True)
 
     df_euclidean.to_csv(os.path.join(output_dir, "results_knn_euclidean.csv"), index=True)
@@ -41,7 +43,7 @@ def classification():
     # Save comparison table
     df_comparison.to_csv(os.path.join(output_dir, "results_knn_comparison.csv"), index=True)
 
-    print("\n📁 Results saved:")
+    print("\n📁 Results saved on: data/output/")
     print("- results_knn_euclidean.csv")
     print("- results_knn_cosine.csv")
     print("- results_knn_comparison.csv")
@@ -50,17 +52,17 @@ def classification():
 def data_visualization():
     file_path = "data/input/mini_gm_public_v0.1.p"
 
-    print("Iniciando o carregamento dos dados...")
+    print("Starting data loading...")
     dataset = GeneticSyndromeDataset(file_path)
 
-    print("\nExibindo resumo dos dados:")
+    print("\nDisplaying data summary:")
     dataset.get_summary()
 
-    print("\nGerando visualização dos embeddings com t-SNE...")
+    print("\nGenerating embedding visualization with t-SNE...")
     dataset.plot_tsne()
 
 if __name__ == "__main__":
- 
+
     data_visualization()
     classification()
     analysis()
