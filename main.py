@@ -1,3 +1,4 @@
+import os
 from dataset import GeneticSyndromeDataset
 import numpy as np
 from dataset import GeneticSyndromeDataset
@@ -6,11 +7,11 @@ from knn_results_analysis import KNNResultsAnalyzer
 
 
 def analysis():
-    analyzer = KNNResultsAnalyzer("results_knn_comparison.csv")
+    analyzer = KNNResultsAnalyzer("data/output/results_knn_comparison.csv")
     stats = analyzer.analyze()
 def classification():
     # Load dataset
-    file_path = "data/mini_gm_public_v0.1.p"
+    file_path = "data/input/mini_gm_public_v0.1.p"
     dataset = GeneticSyndromeDataset(file_path)
 
     # Convert embeddings to NumPy arrays
@@ -31,11 +32,14 @@ def classification():
     print("\n🔍 Distance Metric Comparison:")
     print(df_comparison)
     # Save individual metric results
-    df_euclidean.to_csv("results_knn_euclidean.csv", index=True)
-    df_cosine.to_csv("results_knn_cosine.csv", index=True)
+    output_dir = "data/output" 
+    os.makedirs(output_dir, exist_ok=True)
+
+    df_euclidean.to_csv(os.path.join(output_dir, "results_knn_euclidean.csv"), index=True)
+    df_cosine.to_csv(os.path.join(output_dir, "results_knn_cosine.csv"), index=True)
 
     # Save comparison table
-    df_comparison.to_csv("results_knn_comparison.csv", index=True)
+    df_comparison.to_csv(os.path.join(output_dir, "results_knn_comparison.csv"), index=True)
 
     print("\n📁 Results saved:")
     print("- results_knn_euclidean.csv")
@@ -44,7 +48,7 @@ def classification():
 
 
 def data_visualization():
-    file_path = "data/mini_gm_public_v0.1.p"
+    file_path = "data/input/mini_gm_public_v0.1.p"
 
     print("Iniciando o carregamento dos dados...")
     dataset = GeneticSyndromeDataset(file_path)
@@ -56,6 +60,7 @@ def data_visualization():
     dataset.plot_tsne()
 
 if __name__ == "__main__":
-    #data_visualization()
-    #classification()
+ 
+    data_visualization()
+    classification()
     analysis()

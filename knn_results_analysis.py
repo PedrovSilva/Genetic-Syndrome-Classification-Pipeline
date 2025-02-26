@@ -28,7 +28,7 @@ class KNNResultsAnalyzer:
         plt.title('Comparison of AUC for Euclidean and Cosine Distance')
         plt.legend()
         plt.grid()
-        output_dir = "plots"  
+        output_dir = "data/output/plots"  
         os.makedirs(output_dir, exist_ok=True)  
 
         plt.savefig(os.path.join(output_dir, "auc_comparison.png")) 

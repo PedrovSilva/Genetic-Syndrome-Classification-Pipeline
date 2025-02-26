@@ -54,7 +54,7 @@ class GeneticSyndromeDataset:
         print("\nValores nulos:")
         print(self.df.isnull().sum())
 
-    def plot_tsne(self, perplexity=30, learning_rate=200, random_state=42, save_path="plots/tsne_visualization.png"):
+    def plot_tsne(self, perplexity=30, learning_rate=200, random_state=42, save_path="data/output/plots/tsne_visualization.png"):
         """ Reduz a dimensionalidade dos embeddings para 2D usando t-SNE e salva o gráfico. """
         if self.df is None:
             print("Os dados não foram carregados corretamente.")
