@@ -10,9 +10,9 @@ def analysis():
     analyzer = KNNResultsAnalyzer("data/output/results_knn_comparison.csv")
     stats = analyzer.analyze()
 
-def classification():
+def classification(file_path = "data/input/mini_gm_public_v0.1.p"):
     # Load dataset
-    file_path = "data/input/mini_gm_public_v0.1.p"
+    
     dataset = GeneticSyndromeDataset(file_path)
 
     # Convert embeddings to NumPy arrays
@@ -49,8 +49,8 @@ def classification():
     print("- results_knn_comparison.csv")
 
 
-def data_visualization():
-    file_path = "data/input/mini_gm_public_v0.1.p"
+def data_visualization(file_path = "data/input/mini_gm_public_v0.1.p"):
+    
 
     print("Starting data loading...")
     dataset = GeneticSyndromeDataset(file_path)
