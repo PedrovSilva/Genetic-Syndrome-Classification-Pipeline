@@ -11,7 +11,10 @@ This repository contains a pipeline for the classification of genetic syndromes 
 │   ├── output/               # Pipeline results
 │   │   ├── tables/           # Generated tables
 │   │   ├── plots/            # Generated plots
-├── main.py                    # Main script
+├── main.py                    
+|── dataset.py                # Python scripts
+|── knn_classifier.py
+|── knn_results_analysis.py                
 ├── requirements.txt            # Project dependencies
 └── README.md                   # This file
 ```
