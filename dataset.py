@@ -93,4 +93,4 @@ class GeneticSyndromeDataset:
         print(f"Plot saved at: {save_path}")
 
         # Optionally show the plot
-        plt.show()
+        #plt.show()
